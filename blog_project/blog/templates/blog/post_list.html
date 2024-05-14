@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block title %}All Posts{% endblock %}
+{% block content %}
+<div class="my-4">
+    <h1 class="mt-4">All Posts</h1>
+    <ul class="list-group mt-3">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                <small class="text-muted">({{ post.published_date }})</small>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
